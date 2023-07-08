@@ -1,13 +1,19 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { CuisineList } from './components/CuisineList'
+import { RestaurantDetail } from './components/RestaurantDetail'
 
-const App = () => {
+export default function App() {
   return (
-    <div className="flex justify-center items-center h-screen ">
-      <div className="text-4xl text-center">
-        <p>Review Restaurants App 🚀</p>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<CuisineList />} />
+
+        <Route
+          path="/restaurant/:restaurantId"
+          element={<RestaurantDetail />}
+        />
+      </Routes>
+    </Router>
   )
 }
-
-export default App
